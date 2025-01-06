@@ -22,33 +22,87 @@ header .wrapper {
   margin-left: auto;
   margin-right: auto;
 }
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+header ul.header_menu {
+  display: flex;
 
-header ul{
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    margin-left: auto;
-    gap: 25px;
-    align-items: center;
+  margin-left: auto;
+  gap: 25px;
+  align-items: center;
 }
 
-header ul li a{
-    color: #222;
-    text-decoration: none;
-    
+header ul.header_menu li a {
+  color: #222;
+  text-decoration: none;
 }
-header ul li a:hover{
-    text-decoration: underline;
-    color: #00a;
+header ul.header_menu li a:hover {
+  text-decoration: underline;
+  color: #00a;
 }
-header ul li button{
-    width: 40px;
-    height: 40px;
-    background: #d4d4d4;
-    border: none;
-    outline: none;
-    border-radius: 100%;
-    font-size: 16px;
+header ul.header_menu li button {
+  width: 40px;
+  height: 40px;
+  background: #d4d4d4;
+  border: none;
+  outline: none;
+  border-radius: 100%;
+  font-size: 16px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+header ul.header_menu li button:hover{
+    background: #dddddd;
+}
+/* dropdown */
+.nl_dropdown {
+  position: relative;
+}
+.nl_dropdown .nl_dropdown_menu {
+  position: absolute;
+  top: calc(100% + 20px);
+  right: calc(100% - 45px);
+  width: 300px;
+  background: #ffffff;
+  box-shadow: 3px 5px 12px #555;
+  border-radius: 12px;
+  opacity: 0;
+  visibility: none;
+  transform: translateY(25px);
+  transition: .5s;
+}
+.nl_dropdown .nl_dropdown_menu.show{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0px);
+}
+.nl_dropdown .nl_dropdown_menu::after{
+    content: '';
+    position: absolute;
+    border: 20px solid;
+    border-color: transparent transparent #ffffff transparent;
+    top: -35px;
+    right: 5px;
+}
+
+.nl_dropdown .nl_dropdown_menu li{
+    padding: 12px 20px;
+    transition: .3s;
     cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+.nl_dropdown .nl_dropdown_menu li:first-child{
+    border-radius: 12px 12px 0 0;
+}
+.nl_dropdown .nl_dropdown_menu li:last-child{
+    border-radius: 0 0 12px 12px;
+}
+
+.nl_dropdown .nl_dropdown_menu li:hover{
+    background: #d4d4d4;
 }

@@ -13,7 +13,7 @@
             <div class="logo">
                 Logo
             </div>
-            <ul>
+            <ul class="header_menu">
                 <li>
                     <a href="#">Donate</a>
                 </li>
@@ -24,12 +24,35 @@
                     <a href="#">About Us</a>
                 </li>
                 <li>
-                    <button>
-                        <i class="fas fa-user-alt    "></i>
-                    </button>
+                    <div class="nl_dropdown">
+                        <button data-nl-toggle="dropdown">
+                            <i class="fas fa-user-alt"></i>
+                        </button>
+                        <ul class="nl_dropdown_menu">
+                            <li class="nl_dropdown_item">Theme</li>
+                            <li class="nl_dropdown_item">Reload Page</li>
+                            <li class="nl_dropdown_item">Start Animation</li>
+                            <li class="nl_dropdown_item">Donate</li>
+                        </ul>
+                    </div>
                 </li>
             </ul>
         </div>
     </header>
+
+    <script>
+        let dropdown_btn = document.querySelector('[data-nl-toggle="dropdown"]');
+        dropdown_btn.onclick = function(){
+            let dropdown_menu  = this.parentElement.querySelector('.nl_dropdown_menu');
+            dropdown_menu.classList.add('show');
+        }
+
+        window.addEventListener('click', function(){
+            if(event.target.contains(dropdown_btn)){
+                console.log('remove')
+               document.querySelectorAll('.nl_dropdown_menu').forEach(item=> item.classList.remove('show'))
+            }
+        })
+    </script>
 </body>
 </html>
